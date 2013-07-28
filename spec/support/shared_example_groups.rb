@@ -17,15 +17,15 @@ shared_examples_for "metadata hash builder" do
   end
 
   context "when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to false" do
-    let(:warning_receiver) { Kernel }
+    let(:warning_receiver) { RSpec }
 
     before(:each) do
       RSpec.configure { |c| c.treat_symbols_as_metadata_keys_with_true_values = false }
-      warning_receiver.stub(:warn)
+      warning_receiver.stub(:warn_with)
     end
 
     it 'prints a deprecation warning about any symbols given as arguments' do
-      warning_receiver.should_receive(:warn).with(/In RSpec 3, these symbols will be treated as metadata keys/)
+      warning_receiver.should_receive(:warn_with).with(/In RSpec 3, these symbols will be treated as metadata keys/)
       metadata_hash(:foo, :bar, :key => 'value')
     end
 
@@ -34,7 +34,7 @@ shared_examples_for "metadata hash builder" do
     end
 
     it 'does not print a warning if there are no symbol arguments' do
-      warning_receiver.should_not_receive(:warn)
+      warning_receiver.should_not_receive(:warn_with)
       metadata_hash(:foo => 23, :bar => 17)
     end
   end

@@ -27,7 +27,7 @@ module RSpec
           def warn_about_symbol_usage(args)
             symbols = args.select { |a| a.is_a?(Symbol) }
             return if symbols.empty?
-            Kernel.warn symbol_metadata_warning(symbols)
+            RSpec.warn_with symbol_metadata_warning(symbols)
           end
       end
 

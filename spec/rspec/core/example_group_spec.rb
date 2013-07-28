@@ -38,7 +38,7 @@ module RSpec::Core
       end
 
       it 'processes symbol args as part of the description' do
-        Kernel.stub(:warn) # to silence Symbols as args warning
+        RSpec.stub(:warn_with) # to silence Symbols as args warning
         group = ExampleGroup.describe(:some, :separate, :symbols)
         expect(group.description).to eq("some separate symbols")
       end

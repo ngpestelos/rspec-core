@@ -147,7 +147,7 @@ module RSpec
         begin
           File.join(File.expand_path("~"), ".rspec")
         rescue ArgumentError
-          warn "Unable to find ~/.rspec because the HOME environment variable is not set"
+          RSpec.warning "Unable to find ~/.rspec because the HOME environment variable is not set"
           nil
         end
       end
