@@ -1,5 +1,5 @@
 require 'autotest'
-require 'rspec/core/deprecation'
+require 'rspec/core/warnings'
 
 # Derived from the `Autotest` class, extends the `autotest` command to work
 # with RSpec.

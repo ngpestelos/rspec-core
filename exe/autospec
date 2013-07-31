@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require 'rspec/core/deprecation'
+require 'rspec/core/warnings'
 RSpec.warn_deprecation <<-WARNING
 ************************************************************
 REMOVAL NOTICE: you are using behaviour that has been
