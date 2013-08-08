@@ -13,6 +13,9 @@ RSpec.describe "The RSpec DSL" do
 
   methods.each do |method_name|
     describe "##{method_name}" do
+      it "is added to the RSpec DSL" do
+        expect(::RSpec).to respond_to(method_name)
+      end
       it "is not added to every object in the system" do
         expect(main).to respond_to(method_name)
         expect(Module.new).to respond_to(method_name)

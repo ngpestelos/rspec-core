@@ -140,3 +140,6 @@ module RSpec
   end
 end
 
+module RSpec
+  extend RSpec::Core::SharedExampleGroup::TopLevelDSL
+end

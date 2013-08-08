@@ -19,5 +19,6 @@ module RSpec
       end
     end
   end
-end
 
+  extend Core::DSL
+end
