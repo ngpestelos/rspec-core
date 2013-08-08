@@ -1,3 +1,4 @@
 --default_path spec
 --order rand
 --warnings
+-r spec_helper
