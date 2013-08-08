@@ -32,8 +32,13 @@ module RSpec::Core
 
     %w[share_examples_for shared_examples_for shared_examples shared_context].each do |shared_method_name|
       describe shared_method_name do
-        it "is exposed to the global namespace" do
+        it "is exposed to the global namespace when monkey patching is enabled" do
+          pending "how do we sandbox this"
           expect(Kernel).to respond_to(shared_method_name)
+        end
+
+        it "is not exposed to the global namespace when monkey patching is disabled" do
+          expect(Kernel).to_not respond_to(shared_method_name)
         end
 
         it "displays a warning when adding a second shared example group with the same name" do
