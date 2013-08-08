@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'rspec/core/drb_command_line'
 
 module RSpec::Core
-  describe Runner do
+  RSpec.describe Runner do
     describe 'at_exit' do
       it 'sets an at_exit hook if none is already set' do
         RSpec::Core::Runner.stub(:installed_at_exit?).and_return(false)

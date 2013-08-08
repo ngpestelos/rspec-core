@@ -1,7 +1,7 @@
 require "spec_helper"
 
 module RSpec::Core
-  describe Reporter do
+  RSpec.describe Reporter do
     describe "abort" do
       let(:formatter) { double("formatter") }
       let(:example)   { double("example") }

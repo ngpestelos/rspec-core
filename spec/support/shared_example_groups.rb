@@ -1,4 +1,4 @@
-shared_examples_for "metadata hash builder" do
+RSpec.shared_examples_for "metadata hash builder" do
   context "when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to true" do
     let(:hash) { metadata_hash(:foo, :bar, :bazz => 23) }
 

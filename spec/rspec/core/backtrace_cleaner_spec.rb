@@ -1,7 +1,7 @@
 require "spec_helper"
 
 module RSpec::Core
-  describe BacktraceCleaner do
+  RSpec.describe BacktraceCleaner do
     context "with no patterns" do
       it "keeps all lines" do
         lines = ["/tmp/a_file", "some_random_text", "hello\330\271!"]
