@@ -859,6 +859,9 @@ module RSpec
 
       # @private
       def load_spec_files
+        if @enable_monkey_patching
+          require 'rspec/core/monkey_patch'
+        end
         files_to_run.uniq.each {|f| load File.expand_path(f) }
         @spec_files_loaded = true
         raise_if_rspec_1_is_loaded
