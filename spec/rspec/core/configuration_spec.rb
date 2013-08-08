@@ -5,7 +5,7 @@ module RSpec::Core
 
   RSpec.describe Configuration do
 
-    let(:config) { Configuration.new }
+    let(:config) { Configuration.new.tap { |c| c.enable_monkey_patching = false } }
 
     describe "RSpec.configuration with a block" do
       before { RSpec.stub(:warn_deprecation) }
@@ -1024,8 +1024,8 @@ module RSpec::Core
       end
 
       it "doesn't impact other instances of config" do
-        config_1 = Configuration.new
-        config_2 = Configuration.new
+        config_1 = Configuration.new.tap { |c| c.enable_monkey_patching = false }
+        config_2 = Configuration.new.tap { |c| c.enable_monkey_patching = false }
 
         config_1.full_backtrace = true
         expect(config_2.backtrace_exclusion_patterns).not_to be_empty
@@ -1034,7 +1034,7 @@ module RSpec::Core
 
     describe "#backtrace_exclusion_patterns=" do
       it "actually receives the new filter values" do
-        config = Configuration.new
+        config = Configuration.new.tap { |c| c.enable_monkey_patching = false }
         config.backtrace_exclusion_patterns = [/.*/]
         expect(config.backtrace_cleaner.exclude? "this").to be_truthy
       end
@@ -1054,7 +1054,7 @@ module RSpec::Core
 
     describe "#backtrace_exclusion_patterns" do
       it "can be appended to" do
-        config = Configuration.new
+        config = Configuration.new.tap { |c| c.enable_monkey_patching = false }
         config.backtrace_exclusion_patterns << /.*/
         expect(config.backtrace_cleaner.exclude? "this").to be_truthy
       end

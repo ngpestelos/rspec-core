@@ -50,6 +50,7 @@ Spork.prefork do
       @orig_world  = RSpec.world
       @orig_example = RSpec.current_example
       new_config = RSpec::Core::Configuration.new
+      new_config.enable_monkey_patching = false
       new_world  = RSpec::Core::World.new(new_config)
       RSpec.configuration = new_config
       RSpec.world = new_world

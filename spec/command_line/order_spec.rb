@@ -200,5 +200,6 @@ RSpec.describe 'command line', :ui do
 
   def run_command(cmd)
     RSpec::Core::Runner.run(cmd.split, stderr, stdout)
+    RSpec::configuration.enable_monkey_patching = false
   end
 end

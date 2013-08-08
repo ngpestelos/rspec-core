@@ -10,6 +10,7 @@ RSpec.describe RSpec do
   describe "::configuration=" do
     it "sets the configuration object" do
       configuration = RSpec::Core::Configuration.new
+      configuration.enable_monkey_patching = false
 
       RSpec.configuration = configuration
 

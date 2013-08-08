@@ -10,10 +10,13 @@ module RSpec::Core
     let(:config) { RSpec::configuration }
     let(:world)  { RSpec::world         }
 
-    before { config.stub :run_hook }
+    before do
+     allow(config).to receive :run_hook
+     allow(config).to receive(:enable_monkey_patching?).and_return(false)
+    end
 
     it "configures streams before command line options" do
-      config.stub :load_spec_files
+      allow(config).to receive :load_spec_files
 
       # this is necessary to ensure that color works correctly on windows
       config.should_receive(:error_stream=).ordered

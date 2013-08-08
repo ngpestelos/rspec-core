@@ -859,7 +859,7 @@ module RSpec
 
       # @private
       def load_spec_files
-        if @enable_monkey_patching
+        if enable_monkey_patching?
           require 'rspec/core/monkey_patch'
         end
         files_to_run.uniq.each {|f| load File.expand_path(f) }
