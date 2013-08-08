@@ -12,7 +12,7 @@ Feature: run with ruby command
       """ruby
       require 'rspec/autorun'
 
-      describe 1 do
+      RSpec.describe 1 do
         it "is < 2" do
           1.should be < 2
         end
