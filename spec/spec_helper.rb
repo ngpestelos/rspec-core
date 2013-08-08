@@ -117,6 +117,8 @@ Spork.prefork do
       :file_path => /spec\/command_line/
     }
 
+    c.enable_monkey_patching = false
+
     c.expect_with :rspec do |expectations|
       expectations.syntax = :expect
     end

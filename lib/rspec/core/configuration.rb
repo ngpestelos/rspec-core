@@ -95,6 +95,9 @@ module RSpec
       # Default: `$stderr`.
       add_setting :error_stream
 
+      # Default: true
+      add_setting :enable_monkey_patching
+
       # Default: `$stderr`.
       add_setting :deprecation_stream
 
@@ -193,6 +196,7 @@ module RSpec
 
       def initialize
         @expectation_frameworks = []
+        @enable_monkey_patching = true
         @include_or_extend_modules = []
         @mock_framework = nil
         @files_to_run = []
